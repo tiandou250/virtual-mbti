@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FBFAF8">
+
+<title>你的 V 圈人格 · 20 题测出你最像哪位虚拟主播</title>
+<meta name="description" content="20 道题，五个维度，测出你在 V 圈里最像的那一位。2 分钟，免费，不用注册。">
+
+<!-- ============ Open Graph ============ -->
+<!-- OG 图片已写为绝对地址（社交平台爬虫不解析相对路径）-->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="你的 V 圈人格">
+<meta property="og:title" content="你的 V 圈人格 · 你最像哪位虚拟主播？">
+<meta property="og:description" content="20 道题，五个维度，测出你在 V 圈里最像的那一位。2 分钟，免费，不用注册。">
+<meta property="og:image" content="https://vtuber-persona-t4txxzym.edgeone.cool/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="你的 V 圈人格 —— 20 位虚拟主播的人格测试">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:url" content="https://vtuber-persona-t4txxzym.edgeone.cool/">
+
+<!-- ============ Twitter / 通用 ============ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="你的 V 圈人格 · 你最像哪位虚拟主播？">
+<meta name="twitter:description" content="20 道题，五个维度，测出你在 V 圈里最像的那一位。">
+<meta name="twitter:image" content="https://vtuber-persona-t4txxzym.edgeone.cool/assets/og.jpg">
+<meta name="twitter:image:alt" content="你的 V 圈人格 —— 20 位虚拟主播的人格测试">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<noscript>
+  <div style="max-width:520px;margin:18vh auto;padding:0 28px;
+              font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+              font-size:16px;line-height:1.9;color:#1A1916">
+    <p style="font-size:26px;font-weight:700;margin:0 0 16px">这个测试需要开启 JavaScript</p>
+    <p style="color:#5C5952;margin:0">20 道题的计分全部在你的浏览器里完成，没有服务器参与，所以必须允许 JS 运行。</p>
+  </div>
+</noscript>
+
+<!-- ==================== 首页 ==================== -->
+<main id="page-landing" class="page is-active">
+
+  <div class="landing-inner">
+    <div class="kicker">V-Tuber Persona Test</div>
+
+    <h1 class="title">你的<br><em>V 圈人格</em></h1>
+
+    <p class="lede">
+      你在群里是什么样子，看直播时在找什么，遇到喜欢的东西会不会留很久——
+      <strong>20 道题</strong>，五个维度，算出你最像的那一位。
+    </p>
+
+    <div class="meta-row">
+      <div class="meta-item">
+        <span class="meta-num">20</span>
+        <span class="meta-label">道题</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-num">2</span>
+        <span class="meta-label">分钟</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-num">20</span>
+        <span class="meta-label">个结果</span>
+      </div>
+    </div>
+
+    <button class="btn" id="start-btn" type="button">
+      开始测试
+      <span class="arrow" aria-hidden="true">→</span>
+    </button>
+
+    <p class="hint">不用注册，答案不上传，全部在你手机里算完。</p>
+  </div>
+
+</main>
+
+
+<!-- ==================== 答题页 ==================== -->
+<main id="page-quiz" class="page">
+
+  <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
+
+  <div class="quiz-shell">
+    <div class="q-top">
+      <div class="q-counter"><b id="q-index">1</b> / <span id="q-total">20</span></div>
+      <div class="q-axis" id="q-axis">社交能量</div>
+    </div>
+
+    <h2 class="q-text" id="q-text"></h2>
+
+    <div class="q-opts" id="q-opts"></div>
+
+    <button class="q-back" id="back-btn" type="button">← 上一题</button>
+  </div>
+
+</main>
+
+
+<!-- ==================== 结果页 ==================== -->
+<main id="page-result" class="page">
+
+  <section class="hero">
+    <div class="hero-portrait-wrap">
+      <img class="hero-portrait" id="r-portrait" src="" alt="">
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-copy-col">
+        <div class="hero-eyebrow">你最像的是</div>
+
+        <h1 class="hero-name" id="r-name">—</h1>
+
+        <div class="hero-sub">
+          <span id="r-en">—</span>
+          <span class="dot"></span>
+          <span class="hero-group" id="r-group">—</span>
+        </div>
+
+        <div class="match-badge">
+          <span class="match-label">匹配度</span>
+          <span class="match-num" id="r-match">0</span>
+          <span class="match-pct">%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-cue">往下看</div>
+  </section>
+
+  <section class="body-section">
+    <div class="wrap">
+
+      <div class="rare-tag is-hidden" id="r-rare"></div>
+
+      <div class="copy-block">
+        <p class="copy-p" id="r-hit"></p>
+        <p class="copy-p muted" id="r-deeper"></p>
+        <p class="punch" id="r-punch"></p>
+      </div>
+
+      <h3 class="section-title">你的五维</h3>
+
+      <div class="radar-card">
+        <svg id="r-radar" role="img" aria-label="五维分布雷达图"></svg>
+        <div class="radar-legend">
+          <span class="legend-item">
+            <span class="legend-swatch" id="legend-user"></span>你
+          </span>
+          <span class="legend-item">
+            <span class="legend-swatch dashed" id="legend-person"></span>对方
+          </span>
+        </div>
+      </div>
+
+      <h3 class="section-title">逐项拆开看</h3>
+      <div class="notes" id="r-notes"></div>
+
+      <div class="second" id="r-second"></div>
+
+      <div class="actions">
+        <button class="btn-ghost" id="r-restart" type="button">再测一次</button>
+        <button class="btn-solid" id="r-share" type="button">分享结果</button>
+      </div>
+
+      <div class="footnote">
+        <p>本测试为粉丝向娱乐产物，结果仅代表五个维度的数值相似度，不构成对任何主播本人的评价。</p>
+        <p>题面与文案均为原创，人物形象由 AI 生成，与官方立绘无关。</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+
+<script src="data.js"></script>
+<script src="algorithm.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
